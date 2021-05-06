@@ -15,7 +15,7 @@
         
         <br><h2> Add a Destination </h2>
             <form id ="add-destination-form"
-                action="/flights" method="POST">
+                action="/flights/<%= flight.id%>/destinations" method="POST">
                 <label><strong> Destination-Airport: </strong></label>
                 <select name="airport"> 
                 <option value="AUS">AUS</option>
@@ -53,30 +53,24 @@
             <% } %> 
 
 
+<h2>Tickets</h2>
+<table>
+    <thead>
+        <th>Seat</th>
+        <th>Price</th>
+    </thead>
+    <tr>
+        <% flight.destinations.forEach(function(ticket) { %> 
+            <tr>
+                <td><%= ticket.seat %></td>
+                <td><%= ticket.price %></td>
+            </tr>
+            <% }); %>
+    </tr>
+</table>
 
-            <h3>Tickets</h3>
-            <label><strong>Seat</strong></label>
-            <input name="seat" required pattern="[A-F][1-9]\d?">
-            <br>
-            <label><strong>Price</strong></label>
-            <input type="number" value="price">
-            <label><strong>Flight</strong></label>
-                <div><strong>Airline:</strong> </div>
-                <div><%= flight.airline %></div>
-                <div><strong>Departure Airport:</strong> </div>
-                <div><%= flight.airport %></div>
-                <div><strong>Flight Number:</strong> </div>
-                <div><%= flight.flightNo %></div>
-                <div><strong>Departure Date:</strong> </div>
-                <div><%= flight.departureDate %></div>
-                <div><strong>Destination</strong></div>
-                <div><%= flight.desintations %></div>
-                <div><strong>Arrival Date</strong></div>
-                <div><%= flight.arrivalDate %></div>
-
-
-            
-
-
+<form id="add-ticket-btn" method="GET"
+action="<%= flight._id %>/view/tickets"></form>
+<button class="input-button"><a href="../tickets/new.ejs"> Add New Ticket </a></button>
 
 <%- include('../partials/footer') %> 
