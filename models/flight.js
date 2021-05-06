@@ -4,18 +4,18 @@ const Schema = mongoose.Schema;
 
 //sub doc
 const destinationSchema = new Schema({
-    airport: {type:String, enum: ["AUS", "DFW", "DEN", "LAX", "SAN"]},
-    arrival: Date
+    airport: String,
+    arrivalDate: Date
 }, {
     timestamps: true
 });
 
 //main doc
 const flightSchema = new Schema({
-    airline: {type: String, enum: ["American", "Southwest", "United"]},
-    airport: {type: String, default: "DEN", enum: ["AUS", "DFW", "DEN", "LAX", "SAN"]},
+    airline: String,
+    airport: String,
     flightNo: Number,
-    departureDate: {type: Date, default: 2022-05-05},
+    departureDate: Date,
     destinations: [destinationSchema]
 }, {
     timestamps: true

@@ -8,7 +8,6 @@
             <th>Airport</th>
             <th>Flight Number</th>
             <th>Departure Date</th>
-            <th>Destination</th>
             <th></th>
         </tr>
         </thead>
@@ -20,12 +19,15 @@
             <td><%= f.airport %></td>
             <td><%= f.flightNo %></td>
             <td><%= f.departureDate %></td>
-            <td><%= f.destination %></td>
-            <td><button><a href="../flights/show.ejs">Details</a></button></td>
+            </form>
+                
+            <td><a href="/flights/<%= f._id %>">DETAILS</a></td>
             </tr>
         <!-- Close the forEach using EJS here -->
         <% }); %>
         </tbody>
     </table>
+
+
 
     <%- include('../partials/footer') %> 
