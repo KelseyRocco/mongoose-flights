@@ -8,6 +8,7 @@ module.exports = {
 
 
 function create(req, res) {
+  console.log("Hey!!!")
   Flight.findById(req.params.id, function(err, flight) {
     flight.destinations.push(req.body);
     flight.save(function(err) {
