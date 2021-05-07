@@ -12,7 +12,8 @@
         <div><%= flight.flightNo %></div>
         <div><strong>Departure Date:</strong> </div>
         <div><%= flight.departureDate %></div>
-        
+        </section>
+    </form>
         <br><h2> Add a Destination </h2>
             <form id ="add-destination-form"
                 action="/flights/<%= flight.id%>/destinations" method="POST">
@@ -32,8 +33,8 @@
                 </form>
             <br>
 
-            <!--Cannot get this to render. Janet is taking  a look at it offline, couldnt figure out furing office hours-->
-            <!-- <% if (flight.destinations.length) { %> 
+            
+        <% if (flight.destinations.length) { %> 
             <table>
                 <thead>
                 <tr>
@@ -51,7 +52,7 @@
                 </table>
             <% } else { %>
             <h5> DIRECT FLIGHT </h5>
-            <% } %>  -->
+            <% } %> 
 
 
 <h2>Tickets</h2>
